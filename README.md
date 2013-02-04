@@ -3,6 +3,19 @@ fing
 
 Meta tools for Node/Javascript
 
+Usage
+-----
+
+### Argument metadata
+
+```coffee
+
+require 'fing'
+testFunction = (arg1, arg2) -> 
+testFunction.fing.args[0].name # == 'arg1'
+
+```
+
 
 ChangeLog
 ---------
