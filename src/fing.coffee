@@ -4,11 +4,32 @@ Object.defineProperty Function.prototype, 'fing',
 
     get: -> 
 
+        args = []
+
         #
-        # <function>.fing.args is an array.
+        # it contains the function arg details
+        # as follows:
+        # 
+        # <function>.fing.args = [{name:'arg1'},{name:'arg2'},...]
         #
 
-        args: []
+        for name in this.toString().match(
+
+            /\((.*)\)\s{/
+
+        )[1].split(', ')    # 
+                            # would be nice to also 
+                            # do the split in the
+                            # regex expression
+                            #  
+
+            args.push name: name if name
+
+        return {
+
+            args: args
+
+        }
 
 
 module.exports = {}
