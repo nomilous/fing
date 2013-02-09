@@ -1,8 +1,16 @@
+idSequence = 0
+
 Object.defineProperty Function.prototype, 'fing',
 
-    set: (value) -> # nothing to set
+    #
+    # Responds for the case of functions and 'Classes'
+    #
+
+    set: (value) ->
 
     get: -> 
+
+        @__id ||= ++idSequence
 
         args = []
 
@@ -27,7 +35,33 @@ Object.defineProperty Function.prototype, 'fing',
 
         return {
 
-            args: args
+            type: 'prototype'
+            name: @name
+            args: args # contains constructor arg signature if a class
+                       # or the function arg signature
+            id: @__id
+            ref: "prototype:#{@name}:#{@__id}"
+
+        }
+
+
+Object.defineProperty Object.prototype, 'fing',
+
+    #
+    # Responds for the case 'Class' instances
+    #
+
+    get: ->
+
+        @__id ||= ++idSequence
+
+        return {
+
+            type: 'instance'
+            name: @constructor.name
+            args: @constructor.fing.args # contains constructor arg signature
+            id: @__id
+            ref: "instance:#{@constructor.name}:#{@__id}"
 
         }
 
