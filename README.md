@@ -68,6 +68,10 @@ coffee>
 
 ```
 
+### Identity
+
+The generated identity is only ensured unique for ingle threaded environments, eg. Nodejs
+
 
 ChangeLog
 ---------
