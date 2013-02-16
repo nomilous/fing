@@ -78,6 +78,7 @@ ChangeLog
 
 ### 2013-02-16 v0.0.3
 
+* `pending publish npmjs.org is currently malfunctioning`
 * Added ano_ther underscode to __id
 * Hid ___id away, as a non enumerating property
 
