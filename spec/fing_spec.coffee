@@ -31,8 +31,8 @@ describe 'fing provides object / instance meta data', ->
             type: 'instance'  # <---------------------------------- instance of a thing
             name: 'Thing'
             args: [{name:'a'},{name:'b'}]
-            id: 3
-            ref: 'instance:Thing:3'
+            id: 4
+            ref: 'instance:Thing:4'
 
         thing2.fing.should.eql 
 
@@ -44,6 +44,13 @@ describe 'fing provides object / instance meta data', ->
 
 
         thing2.fing.ref.should.equal 'instance:Thing:5'
+
+        thing2.___id.should.equal 5
+        thing2.___id.should.equal 5
+        thing2.___id.should.equal 5
+        thing2.___id.should.equal 5
+        thing2.___id.should.equal 5 # okdamngood... :) it stays the same
+
 
         done()
 

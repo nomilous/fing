@@ -76,6 +76,11 @@ The generated identity is only ensured unique for single threaded environments, 
 ChangeLog
 ---------
 
+### 2013-02-16 v0.0.3
+
+* Added ano_ther underscode to __id
+* Hid ___id away, as a non enumerating property
+
 ### 2013-02-09 v0.0.2
 
 * Added <object|function/prototype>.fing.[type,name,args,id,ref]

@@ -10,7 +10,11 @@ Object.defineProperty Function.prototype, 'fing',
 
     get: -> 
 
-        @__id ||= ++idSequence
+        if typeof @___id == 'undefined' 
+
+            Object.defineProperty this, '___id', get: -> idSequence
+            idSequence++
+            
 
         args = []
 
@@ -39,8 +43,8 @@ Object.defineProperty Function.prototype, 'fing',
             name: @name
             args: args # contains constructor arg signature if a class
                        # or the function arg signature
-            id: @__id
-            ref: "prototype:#{@name}:#{@__id}"
+            id: @___id
+            ref: "prototype:#{@name}:#{@___id}"
 
         }
 
@@ -53,17 +57,19 @@ Object.defineProperty Object.prototype, 'fing',
 
     get: ->
 
-        @__id ||= ++idSequence
+        if typeof @___id == 'undefined' 
+
+            Object.defineProperty this, '___id', get: -> idSequence
+            idSequence++
 
         return {
 
             type: 'instance'
             name: @constructor.name
             args: @constructor.fing.args # contains constructor arg signature
-            id: @__id
-            ref: "instance:#{@constructor.name}:#{@__id}"
+            id: @___id
+            ref: "instance:#{@constructor.name}:#{@___id}"
 
         }
-
 
 module.exports = {}
