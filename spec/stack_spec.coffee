@@ -24,4 +24,20 @@ describe 'Stack', ->
         Stack.trace()[0].call.should.equal 'Context.<anonymous>'
         done()
 
-    
+
+    it 'provides the script filename where the call was made', (done) ->
+
+        Stack.trace()[0].file.should.match /stack_spec\.coffee$/
+        done()
+
+
+    it 'privides line number', (done) -> 
+
+        Stack.trace()[0].line.should.equal 28
+        done()
+
+
+    it 'provides column number', (done) ->
+        Stack.trace()[0].col.should.equal 13
+        done()
+

@@ -11,9 +11,9 @@ Usage
 ```coffee
 
 coffee> require 'fing'
-{}
-coffee> 
-coffee> 
+
+
+
 coffee> class Thing
 [Function: Thing]
 coffee> 
@@ -24,8 +24,9 @@ coffee> Thing.fing
   args: [],             # <------------------ constructor / function signature
   id: 1,                
   ref: 'prototype:Thing:1' }
-coffee> 
-coffee> 
+
+
+
 coffee> thing1 = new Thing
 {}
 coffee> 
@@ -35,8 +36,9 @@ coffee> thing1.fing
   args: [],            # <------------------- constructor signature
   id: 2,               # <------------------- unique 
   ref: 'instance:Thing:2' }
-coffee> 
-coffee> 
+
+
+
 coffee> thing2 = new Thing
 {}
 coffee> thing2.fing
@@ -45,16 +47,18 @@ coffee> thing2.fing
   args: [],
   id: 3,                
   ref: 'instance:Thing:3' }  # <------------ unique reference
-coffee> 
-coffee> 
+
+
+
 coffee> Thing.fing
 { type: 'prototype',
   name: 'Thing',
   args: [],
   id: 1,                # <--------------- Thing still has id 1
   ref: 'prototype:Thing:1' }
-coffee> 
-coffee> 
+
+
+
 coffee> fn = (arg1,arg2) ->
 [Function]
 coffee> fn.fing
@@ -63,6 +67,16 @@ coffee> fn.fing
   args: [ { name: 'arg1' }, { name: 'arg2' } ],  # <---- function arg signature
   id: 5,                                         # <---- unique id
   ref: 'prototype::5' }                          
+
+
+
+coffee> test = -> fing.trace()
+[Function]
+coffee> test()
+[ { call: 'test',
+    file: 'evalmachine.%3Canonymous%3E',
+    line: 4,
+    col: 15 } ]
 coffee> 
 
 
@@ -75,6 +89,10 @@ The generated identity is only ensured unique for single threaded environments, 
 
 ChangeLog
 ---------
+
+### 2013-02-24 v0.0.4
+
+* Added fing.trace()
 
 ### 2013-02-18 v0.0.3
 
