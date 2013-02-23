@@ -45,6 +45,7 @@ Object.defineProperty Function.prototype, 'fing',
                        # or the function arg signature
             id: @___id
             ref: "prototype:#{@name}:#{@___id}"
+            trace: require('./stack').trace
 
         }
 
@@ -69,6 +70,7 @@ Object.defineProperty Object.prototype, 'fing',
             args: @constructor.fing.args # contains constructor arg signature
             id: @___id
             ref: "instance:#{@constructor.name}:#{@___id}"
+            trace: require('./stack').trace
 
         }
 

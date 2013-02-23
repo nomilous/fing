@@ -1,6 +1,7 @@
 should    = require 'should'
 fing      = require '../src/fing'
-including = it
+Stack     = require '../src/stack'
+including = using = it
 
 describe 'fing provides function meta data', ->
 
@@ -33,6 +34,7 @@ describe 'fing provides object / instance meta data', ->
             args: [{name:'a'},{name:'b'}]
             id: 4
             ref: 'instance:Thing:4'
+            trace: Stack.trace
 
         thing2.fing.should.eql 
 
@@ -41,6 +43,7 @@ describe 'fing provides object / instance meta data', ->
             args: [{name:'a'},{name:'b'}]
             id: 5
             ref: 'instance:Thing:5'
+            trace: Stack.trace
 
 
         thing2.fing.ref.should.equal 'instance:Thing:5'
@@ -69,6 +72,7 @@ describe 'fing provides object / instance meta data', ->
             args: [{name:'a'},{name:'b'}]
             id: 6
             ref: 'prototype:Whatsit:6'
+            trace: Stack.trace
 
         #
         # redefined
@@ -84,6 +88,7 @@ describe 'fing provides object / instance meta data', ->
             args: [{name:'a'},{name:'b'}]
             id: 7           # <-------------------------- new definition, new id
             ref: 'prototype:Whatsit:7'
+            trace: Stack.trace
 
 
         done()
@@ -103,8 +108,12 @@ describe 'fing provides object / instance meta data', ->
 
 
 
+describe 'fing provides access to the stack', -> 
 
+    using '.fing.stack()', (done) ->
 
+        (->).fing.trace.should.equal Stack.trace
+        done()
 
 
 
