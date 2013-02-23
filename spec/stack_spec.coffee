@@ -33,7 +33,7 @@ describe 'Stack', ->
 
     it 'privides line number', (done) -> 
 
-        Stack.trace()[0].line.should.equal 28
+        Stack.trace()[0].line.should.equal 28 # !36 (the only downside of coffee-script)
         done()
 
 
