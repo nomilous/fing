@@ -15,3 +15,13 @@ describe 'Stack', ->
         Stack.trace().should.be.an.instanceof Array
         done()
 
+
+    it 'provides access to the made call', (done) ->
+
+        #
+        # mocha made the call
+        #
+        Stack.trace()[0].call.should.equal 'Context.<anonymous>'
+        done()
+
+    

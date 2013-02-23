@@ -110,7 +110,7 @@ describe 'fing provides object / instance meta data', ->
 
 describe 'fing provides access to the stack', -> 
 
-    using '.fing.stack()', (done) ->
+    using '.fing.trace()', (done) ->
 
         (->).fing.trace.should.equal Stack.trace
         done()
