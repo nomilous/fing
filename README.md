@@ -74,7 +74,7 @@ coffee> test = -> fing.trace()
 [Function]
 coffee> test()
 [ { call: 'test',
-    file: 'evalmachine.%3Canonymous%3E',
+    file: 'evalmachine.<anonymous>',
     line: 4,
     col: 15 } ]
 coffee> 
