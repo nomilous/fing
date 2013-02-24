@@ -15,7 +15,6 @@ module.exports = Stack =
         #
 
         skip  = 2
-        count = 0
 
         try
 
@@ -31,7 +30,7 @@ module.exports = Stack =
                 #
 
                 continue if line == 'Error'
-                continue unless ++count > skip
+                continue if skip-- > 0
 
                 parts    = line.match /^.*at (.*)\((.*)\)/
                 location = parts[2].match /(.*)\:(.*)\:(.*)/
