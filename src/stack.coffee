@@ -1,6 +1,6 @@
 module.exports = Stack = 
 
-    trace: (object) -> 
+    trace: -> 
 
         #
         # generate an error and marshal its stack into

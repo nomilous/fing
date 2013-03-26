@@ -90,6 +90,10 @@ The generated identity is only ensured unique for single threaded environments, 
 ChangeLog
 ---------
 
+### 2013-03-27 v0.0.5
+
+* Protected prototype override from multiple requires
+
 ### 2013-02-24 v0.0.4
 
 * Added fing.trace()

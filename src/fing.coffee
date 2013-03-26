@@ -1,7 +1,4 @@
-module.exports = Fing = 
-
-    idSequence: 0
-
+idSequence = 0
 
 if typeof Function.prototype.fing == 'undefined'
 
@@ -17,8 +14,8 @@ if typeof Function.prototype.fing == 'undefined'
 
             if typeof @___id == 'undefined' 
 
-                Object.defineProperty this, '___id', get: -> Fing.idSequence
-                Fing.idSequence++
+                Object.defineProperty this, '___id', get: -> idSequence
+                idSequence++
                 
 
             args = []
@@ -67,8 +64,8 @@ if typeof Object.prototype.fing == 'undefined'
 
             if typeof @___id == 'undefined' 
 
-                Object.defineProperty this, '___id', get: -> Fing.idSequence
-                Fing.idSequence++
+                Object.defineProperty this, '___id', get: -> idSequence
+                idSequence++
 
             return {
 
